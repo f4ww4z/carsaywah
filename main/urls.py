@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from main.api import api_user, api_car
+from main.api import api_user, api_car, api_booking
 
 urlpatterns = [
     path('auth/', include('rest_framework.urls')),
@@ -13,5 +13,8 @@ urlpatterns = [
     path('mycars/', api_car.car_provider_list, name='car_list'),
     path('searchcar/<str:brand>/', api_car.search_car, name='search_car_list'),
     path('cars/<int:pk>/', api_car.CarDetail.as_view(), name='car-detail'),
+    path('bookings/', api_booking.CreateBooking.as_view(), name='booking_create'),
+    path('mybookings/', api_booking.booking_list, name='booking_list'),
+    path('bookings/<int:pk>/', api_booking.BookingDetail.as_view(), name='booking_detail'),
 
 ]

@@ -10,3 +10,6 @@ class Car(models.Model):
     owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
 
+class Booking(models.Model):
+    platNo = models.ForeignKey(Car, on_delete=models.CASCADE)
+    owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
