@@ -10,7 +10,7 @@ urlpatterns = [
     path('users/', api_user.UsersList.as_view(), name='users_list'),
     path('users/register/', api_user.UserCreate.as_view(), name='user_create'),
     path('cars/', api_car.CarCreate.as_view(), name='car_create'),
-    path('mycars/', api_car.car_list, name='car_list'),
+    path('mycars/', api_car.car_provider_list, name='car_list'),
+    path('searchcar/<str:brand>/', api_car.search_car, name='search_car_list'),
     path('cars/<int:pk>/', api_car.CarDetail.as_view(), name='car-detail'),
-
 ]
