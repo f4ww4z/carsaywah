@@ -1,11 +1,13 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers as ser
+
 from main.models import Trip
 
 
-class TripSerializer(ser.HyperlinkedModelSerializer):
-    owner = ser.ReadOnlyField(source='owner.username')
+class TripSerializer(ser.ModelSerializer):
+    renter = ser.ReadOnlyField(source='renter.username')
+    status = ser.ReadOnlyField()
 
     class Meta:
         model = Trip
-        fields = ['owner', 'car_id', 'startlocation', 'endlocation', 'duration', 'price', 'active']
+        fields = (
+            'id', 'renter', 'car', 'startlocation', 'endlocation', 'duration', 'price', 'status')
