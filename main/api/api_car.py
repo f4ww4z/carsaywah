@@ -1,11 +1,10 @@
 from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
-from main.models import Car
 from main.permissions import IsOwnerOrReadOnly
-from main.serializers import car_serializer
 
+from main.serializers import car_serializer
+from main.models import Car
 
 class CarCreate(generics.CreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
