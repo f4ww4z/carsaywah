@@ -8,4 +8,4 @@ class CarSerializer(ser.HyperlinkedModelSerializer):
 
     class Meta:
         model = Car
-        fields = ['id', 'platNo', 'brand', 'capacity', 'owner']
+        fields = ['id', 'platNo', 'brand', 'capacity', 'owner', 'location', 'bookedBy']
