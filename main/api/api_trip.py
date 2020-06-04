@@ -18,7 +18,7 @@ class CreateTrip(generics.CreateAPIView):
 @api_view(['GET'])
 def trip_list(request):
     trip_of_current_user = Trip.objects.filter(renter=request.user)
-    serializer = trip_serializer.TripSerializer(trip_of_current_user, many=True)
+    serializer = trip_serializer.TripViewSerializer(trip_of_current_user, many=True)
     return Response(serializer.data)
 
 
